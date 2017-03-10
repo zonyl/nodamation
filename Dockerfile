@@ -21,7 +21,7 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
       "libssl-dev" ]
 RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
-RUN [ "curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash" ]
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 RUN [ "nvm", "install", "node" ]
 
 COPY . /usr/src/nodamation
