@@ -1,6 +1,13 @@
 FROM phusion/baseimage
 LABEL maintainer "Jason Sharpee <jason@sharpee.com>"
-
+LABEL org.label-schema.vendor="zonyl" \
+  org.label-schema.url="https://github.com/zonyl/nodamation" \
+  org.label-schema.name="Nodamation" \
+  org.label-schema.version="1" \
+  org.label-schema.vcs-url="github.com:zonyl/nodamation.git" \
+  org.label-schema.vcs-ref="" \
+  org.label-schema.build-date="2" \
+  org.label-schema.docker.schema-version="1.0"
 EXPOSE 8080
 ENV settings=/usr/src/nodamation/local/settings.js
 
