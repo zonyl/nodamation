@@ -21,13 +21,20 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
       "libssl-dev" ]
 RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
-#RUN source ~/.profile
-#RUN [ "nvm", "install", "node" ]
+
 
 COPY . /usr/src/nodamation
 RUN mkdir /usr/src/nodamation/local
 VOLUME ['/usr/src/nodamation/local']
+
+RUN useradd -c 'Nodamation User' -m -d /home/nodamation -s /bin/bash nodamation
+RUN chown -R nodamation.nodamation /usr/src/nodamation
+USER nodamation
+ENV HOME /home/nodamation
+
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+#RUN source ~/.profile
+#RUN [ "nvm", "install", "node" ]
 
 WORKDIR /usr/src/nodamation
 CMD [ "bash" ]
