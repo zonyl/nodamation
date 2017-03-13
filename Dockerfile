@@ -22,8 +22,8 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
 RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
-RUN source ~/.profile
-RUN [ "nvm", "install", "node" ]
+#RUN source ~/.profile
+#RUN [ "nvm", "install", "node" ]
 
 COPY . /usr/src/nodamation
 RUN mkdir /usr/src/nodamation/local
