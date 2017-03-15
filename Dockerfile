@@ -33,8 +33,10 @@ USER nodamation
 ENV HOME /home/nodamation
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
-#RUN source ~/.profile
-#RUN [ "nvm", "install", "node" ]
+RUN [ "echo" , "$HOME" ]
+RUN [ "whoami" ]
+RUN source ~/.profile
+RUN [ "nvm", "install", "node" ]
 
 WORKDIR /usr/src/nodamation
 CMD [ "bash" ]
