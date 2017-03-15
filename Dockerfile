@@ -31,11 +31,13 @@ RUN useradd -c 'Nodamation User' -m -d /home/nodamation -s /bin/bash nodamation
 RUN chown -R nodamation.nodamation /usr/src/nodamation
 USER nodamation
 ENV HOME /home/nodamation
+RUN echo $HOME
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
-RUN [ "echo" , "$HOME" ]
-RUN [ "whoami" ]
-RUN source ~/.profile
+RUN export HOME="/home/nodamation"
+RUN export NVM_DIR="$HOME/.nvm"
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 RUN [ "nvm", "install", "node" ]
 
 WORKDIR /usr/src/nodamation
