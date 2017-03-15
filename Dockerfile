@@ -32,11 +32,14 @@ RUN chown -R nodamation.nodamation /usr/src/nodamation
 USER nodamation
 ENV HOME /home/nodamation
 RUN echo $HOME
-
+RUN exports
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 RUN export HOME="/home/nodamation"
 RUN export NVM_DIR="$HOME/.nvm"
-RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+RUN exec bash
+run exports
+RUN source /home/nodamation/.bashrc
+#RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 RUN [ "nvm", "install", "node" ]
 
