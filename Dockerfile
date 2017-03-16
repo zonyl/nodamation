@@ -21,7 +21,7 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
       "libssl-dev" ]
 RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
-
+RUN wget -qO- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | bash
 
 COPY . /usr/src/nodamation
 RUN mkdir /usr/src/nodamation/local
@@ -33,7 +33,7 @@ USER nodamation
 ENV HOME /home/nodamation
 RUN echo "$HOME"
 RUN export
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+#RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 #RUN export HOME="/home/nodamation"
 #RUN export NVM_DIR="$HOME/.nvm"
 #RUN exec bash
@@ -41,8 +41,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh
 #RUN source /home/nodamation/.bashrc
 #RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 WORKDIR /usr/src/nodamation
-RUN [ "sh", "/usr/src/nodamation/nvm_env.sh" ]
-RUN export
+#RUN [ "sh", "/usr/src/nodamation/nvm_env.sh" ]
+#RUN export
 #RUN [ "nvm", "install", "node" ]
 
 CMD [ "bash" ]
