@@ -41,7 +41,7 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh
 #RUN source /home/nodamation/.bashrc
 #RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 WORKDIR /usr/src/nodamation
-RUN [ "nvm_env.sh" ]
+RUN [ "sh", "/usr/src/nodamation/nvm_env.sh" ]
 RUN [ "nvm", "install", "node" ]
 
 CMD [ "bash" ]
