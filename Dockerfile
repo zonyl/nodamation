@@ -21,7 +21,8 @@ RUN [ "apt-get", "install", "-qy", "--force-yes", \
       "libssl-dev" ]
 RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
-RUN wget -qO- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | bash
+RUN export
 
 COPY . /usr/src/nodamation
 RUN mkdir /usr/src/nodamation/local
@@ -37,7 +38,7 @@ RUN export
 #RUN export HOME="/home/nodamation"
 #RUN export NVM_DIR="$HOME/.nvm"
 #RUN exec bash
-#run export
+#RUN export
 #RUN source /home/nodamation/.bashrc
 #RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 WORKDIR /usr/src/nodamation
