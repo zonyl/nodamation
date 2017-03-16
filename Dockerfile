@@ -23,6 +23,8 @@ RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
 RUN curl -o- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | bash
 RUN export
+RUN [ "nvm", "install", "v6.10.0" ]
+RUN export
 
 COPY . /usr/src/nodamation
 RUN mkdir /usr/src/nodamation/local
@@ -33,6 +35,7 @@ RUN chown -R nodamation.nodamation /usr/src/nodamation
 USER nodamation
 ENV HOME /home/nodamation
 RUN echo "$HOME"
+RUN [ "nvm", "install", "v6.10.0" ]
 RUN export
 #RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 #RUN export HOME="/home/nodamation"
