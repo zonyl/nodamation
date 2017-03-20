@@ -11,6 +11,8 @@ LABEL org.label-schema.vendor="zonyl" \
 EXPOSE 8080
 ENV NODAMATION_SETTINGS=/usr/src/nodamation/local/settings.js
 
+#Node JS 6.x
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 RUN [ "apt-get", "-q", "update" ]
 RUN [ "apt-get", "-qy", "--force-yes", "upgrade" ]
@@ -18,7 +20,8 @@ RUN [ "apt-get", "-qy", "--force-yes", "dist-upgrade" ]
 RUN [ "apt-get", "install", "-qy", "--force-yes", \
       "git", \
       "build-essential", \
-      "libssl-dev" ]
+      "libssl-dev", \
+      "nodejs" ]
 RUN [ "apt-get", "clean" ]
 RUN [ "rm", "-rf", "/var/lib/apt/lists/*", "/tmp/*", "/var/tmp/*" ]
 RUN curl -o- https://raw.githubusercontent.com/xtuple/nvm/master/install.sh | bash
