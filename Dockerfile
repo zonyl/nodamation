@@ -12,7 +12,7 @@ EXPOSE 8080
 ENV NODAMATION_SETTINGS=/usr/src/nodamation/local/settings.js
 
 #Node JS 6.x
-RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 
 RUN [ "apt-get", "-q", "update" ]
 RUN [ "apt-get", "-qy", "--force-yes", "upgrade" ]
