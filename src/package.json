@@ -1,0 +1,22 @@
+{
+  "name": "nodamation",
+  "version": "1.0.0",
+  "description": "Home Automation Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zonyl/nodamation.git"
+  },
+  "author": "Jason Sharpee <jason@sharpee.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zonyl/nodamation/issues"
+  },
+  "homepage": "https://github.com/zonyl/nodamation#readme",
+  "dependencies": {
+    "insteon": "^0.1.0"
+  }
+}
